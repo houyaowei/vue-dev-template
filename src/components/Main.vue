@@ -1,14 +1,16 @@
 <template>
   <div class="hello">
-    <div class="nav">
-      <div><router-link to="/">主页</router-link></div>
+    <div>
+      <!-- <div><router-link to="/">主页</router-link></div>
       <div><router-link to="/demos">行业案例</router-link></div>
       <div><router-link to="/about">关于我们</router-link></div>
-      <div><router-link to="/contact">联系我们</router-link></div>
+      <div><router-link to="/contact">联系我们</router-link></div> -->
       <div>
-        <input v-model="userName"><button @click="userLogin">login</button>
+				<div>
+        <input v-model="userName" placeholder="请输入用户名"><button @click="userLogin">login</button>
         <span v-if="this.$store.state.show">已登录</span>
-        <span> {{status}} </span>
+				</div>
+        <span>用户登陆： {{status}} </span>
       </div>
     </div>
     <div class="detail-left">
@@ -44,7 +46,9 @@ export default {
           userName
         });
         // this.userName = "";
-      }
+      }else {
+				alert("请输入用户名");
+			}
     }
   })
 };
