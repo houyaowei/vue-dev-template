@@ -1,4 +1,6 @@
 import "whatwg-fetch";
+import axios from "axios";
+
 import URL from "./urlConfig";
 
 let getData = function(url, data, resolve) {
@@ -18,11 +20,14 @@ let getData = function(url, data, resolve) {
 };
 
 export function login() {
-  return new Promise(resolve => {
-    console.log("ajaxService");
-    let url = URL.login;
-    let postData = {};
-    // getData(url, postData, resolve);
-    resolve({ res: true });
-  });
+  // return new Promise(resolve => {
+  //   console.log("ajaxService");
+  //   let url = URL.login;
+  //   let postData = {};
+  //   // getData(url, postData, resolve);
+  //   resolve({ res: true });
+  // });
+	return axios.post('http://localhost:4000/graphql', {
+  query: '{ language }'
+}) 
 }

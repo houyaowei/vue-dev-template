@@ -3,6 +3,7 @@ import { XAHC_LOGIN_MUTATION } from "./mutation-types";
 
 export const loginAction = ({ commit }) => {
   api.login().then(messages => {
-    commit(XAHC_LOGIN_MUTATION, messages);
+		console.log("message:",messages);
+    commit(XAHC_LOGIN_MUTATION, messages.data.data);
   });
 };
