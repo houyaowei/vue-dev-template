@@ -7,10 +7,20 @@
       <div><router-link to="/contact">联系我们</router-link></div> -->
       <div>
 				<div>
-        <input v-model="userName" placeholder="请输入用户名"><button @click="userLogin">login</button>
+        <el-input v-model="userName" placeholder="请输入用户名"></el-input>
+				<el-button type="primary" @click="userLogin">login</el-button>
         <span v-if="this.$store.state.show">已登录</span>
 				</div>
         <span>用户登陆： {{status}} </span>
+				<hr />
+				<div>
+					<input v-model="number1" placeholder="number1"><br />
+					<input v-model="number2" placeholder="number2"><br />
+					<button @click="addNumber">两个数字相加</button>
+				</div>
+				<div>
+					<span style="color: red;font-size: 40;">两个数的结果是：{{sum}}</span>
+				</div>
       </div>
     </div>
     <div class="detail-left">
@@ -25,21 +35,23 @@
 
 <script>
 import { mapState, mapActions, mapGetters } from "vuex";
-import { XAHC_LOGIN_ACTION } from "../store/mutation-types";
+import { XAHC_LOGIN_ACTION,XAHC_NUMBERADD_ACTION } from "../store/mutation-types";
 
 export default {
   name: "Header",
   data() {
     return {
-      userName: ""
+      userName: "",
+			number1: 1,
+			number2:2
     };
   },
   computed: mapGetters({
-    status: "getStatus"
+    status: "getStatus",
+		sum: "getResult"
   }),
   methods: mapActions({
     userLogin(dispatch) {
-		console.log("action")
       const { userName } = this;
       if (userName.trim()) {
         dispatch(XAHC_LOGIN_ACTION, {
@@ -49,7 +61,14 @@ export default {
       }else {
 				alert("请输入用户名");
 			}
-    }
+    },
+		addNumber(dispatch){
+			const {number1: a, number2:b} = this;
+			dispatch(XAHC_NUMBERADD_ACTION, {
+			  a,
+				b
+			});
+		}
   })
 };
 </script>

@@ -7,7 +7,8 @@ import * as getters from "./getters";
 Vue.use(Vuex);
 
 const state = {
-  show: false
+  show: false,
+	result: 0
 };
 export default new Vuex.Store({
   state,

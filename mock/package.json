@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-		"start" : "node index.js"
+    "start": "nodemon index.js"
   },
   "keywords": [
     "graphql",
@@ -17,6 +17,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
-    "graphql": "^14.6.0"
+    "graphql": "^14.6.0",
+    "nodemon": "^2.0.2"
   }
 }

@@ -1,6 +1,6 @@
 import Vue from "vue";
 
-import { XAHC_LOGIN_MUTATION } from "./mutation-types";
+import { XAHC_LOGIN_MUTATION,XAHC_NUMBERADD_MUTATION } from "./mutation-types";
 
 export default {
   [XAHC_LOGIN_MUTATION](state, data) {
@@ -11,5 +11,10 @@ export default {
 	 else {
 		 state.show = false;
 	 }
-  }
+  },
+	[XAHC_NUMBERADD_MUTATION](state, data) {
+	  if(data){
+			state.result = data;
+		}
+	}
 };

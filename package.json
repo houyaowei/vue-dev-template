@@ -10,6 +10,7 @@
   "dependencies": {
     "apollo-boost": "^0.4.7",
     "axios": "^0.19.2",
+    "element-ui": "^2.13.0",
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",
     "vue": "^2.5.17",

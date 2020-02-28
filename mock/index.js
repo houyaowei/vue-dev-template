@@ -8,12 +8,17 @@ app.use(cors())
 
 const schema = buildSchema(`
   type Query {
-    language: String
-  }
+    language: String,
+		result(a: Int,b:Int): Int
+  },
 `)
 
 const rootValue = {
-  language: () => 'GraphQL'
+  language: () => 'GraphQL',
+	result: ({a,b}) => {
+		console.log("mock ,a:",a,",b:",b);
+		return a + b;
+	}
 }
 
 app.use('/graphql', graphqlHTTP({
